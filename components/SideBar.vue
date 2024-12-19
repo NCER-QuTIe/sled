@@ -1,6 +1,14 @@
 <script setup>
-import { ElementsListingsText, ElementsListingsColumns } from "#components";
-let elements = [ElementsListingsText, ElementsListingsColumns];
+import {
+  ElementsListingsText,
+  ElementsListingsColumns,
+  ElementsListingsRows,
+} from "#components";
+let elements = [
+  ElementsListingsText,
+  ElementsListingsColumns,
+  ElementsListingsRows,
+];
 </script>
 
 <template>
