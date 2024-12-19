@@ -8,16 +8,8 @@ function drag(event: DragEvent) {
   <ElementsListingsBase @dragstart="drag">
     <template v-slot:icon>
       <div class="column-element-icon">
-        <div
-          class="flex-grow border border-gray mr-[1px] border-solid rounded border-box h-fit"
-        >
-          1
-        </div>
-        <div
-          class="flex-grow border border-gray border-solid rounded border-box h-fit"
-        >
-          2
-        </div>
+        <div>1</div>
+        <div>2</div>
       </div>
     </template>
     <template v-slot:name> Columns </template>
