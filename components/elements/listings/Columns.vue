@@ -1,0 +1,49 @@
+<script setup lang="ts">
+function drag(event: DragEvent) {
+  event.dataTransfer?.setData("name", "ElementsColumns");
+}
+</script>
+
+<template>
+  <ElementsListingsBase @dragstart="drag">
+    <template v-slot:icon>
+      <div class="column-element-icon">
+        <div
+          class="flex-grow border border-gray mr-[1px] border-solid rounded border-box h-fit"
+        >
+          1
+        </div>
+        <div
+          class="flex-grow border border-gray border-solid rounded border-box h-fit"
+        >
+          2
+        </div>
+      </div>
+    </template>
+    <template v-slot:name> Columns </template>
+  </ElementsListingsBase>
+</template>
+
+<style scoped lang="scss">
+div.column-element-icon {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  gap: calc(0.25rem - 1px);
+  align-items: center;
+
+  div {
+    height: 100%;
+    flex-grow: 1;
+    border: 1px solid black;
+    border-radius: 2px;
+    font-size: 0.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+}
+</style>
