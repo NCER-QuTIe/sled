@@ -1,18 +1,45 @@
-<script setup lang="ts">
-//
-import { QuillEditor } from "@vueup/vue-quill";
-import "@vueup/vue-quill/dist/vue-quill.bubble.css";
+<script setup>
+import Quill from "quill";
+import "quill/dist/quill.core.css";
+import "quill/dist/quill.bubble.css";
+
+const item = useTemplateRef("editor");
+
+let quill;
+onMounted(
+  () =>
+    (quill = new Quill(item.value, {
+      // debug: "info",
+      modules: {
+        toolbar: true,
+      },
+      placeholder: "ტექსტი ...",
+      theme: "bubble",
+    })),
+);
 </script>
 
 <template>
-  <div class="flex-grow box-border border border-solid border-gray-200 rounded">
-    <QuillEditor theme="bubble"> </QuillEditor>
-  </div>
-  <ElementsContainer />
+  <div ref="editor"></div>
 </template>
 
 <style lang="scss">
-.ql-editor {
-  padding: 6px 12px;
+.ql-container {
+  margin: 4px;
+  box-sizing: border-box;
+  border: 1px solid gray;
+  border-radius: 3px;
+  height: 100%;
+  max-height: 100%;
+  overflow: hidden;
+
+  .ql-editor {
+    padding: 6px 12px;
+    max-height: 100%;
+  }
+
+  .ql-toolbar {
+    z-index: 100;
+  }
 }
 </style>

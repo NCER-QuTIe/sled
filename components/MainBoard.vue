@@ -5,9 +5,7 @@ const numberOfSlides = ref(1);
 </script>
 
 <template>
-  <Pane
-    class="min-w-96 flex flex-col gap-2 flex-grow main-board max-h-full overflow-y-scroll"
-  >
+  <Pane class="main-board">
     <div class="h-0">
       <div class="flex flex-col gap-2 pb-2">
         <SlideBase v-for="i in numberOfSlides" :key="i">
@@ -20,7 +18,16 @@ const numberOfSlides = ref(1);
 </template>
 
 <style scoped lang="scss">
-/* .main-board {
-  overflow: scroll;
-} */
+.main-board {
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+
+  flex-grow: 1;
+
+  max-height: 100%;
+  min-width: fit-content;
+}
 </style>
